@@ -1,12 +1,10 @@
 package sample;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-
 import java.net.URL;
 import java.util.*;
 
@@ -21,7 +19,6 @@ public class Controller implements Initializable {
     private int textnum4;
     private int textnum5;
     //</editor-fold>
-
     //<editor-fold desc="FXML anotations">
    @FXML
     Pane basePane;
@@ -53,43 +50,11 @@ public class Controller implements Initializable {
     TextField setNum5;
     //</editor-fold>
 
-
-    /**
-     * @param event
-
-     */
     @FXML
-    private void alertOK(ActionEvent event){
-        alertPane.setVisible(false);
-        basePane.setOpacity(1);
-        basePane.setDisable(false);
-    }
+    private void alertOK(ActionEvent event){ okAlertWindow(); }
+    @FXML
+    private void click(ActionEvent event){ fullResult(calculate(),randomArray()); }
 
-   @FXML
-   private void click(ActionEvent event){
-
-    ArrayList<Integer> ranres= randomArray();
-       System.out.println(ranres);
-    Set<Integer> neznayu=new HashSet<>();
-    if (calculate()!=null) {
-        neznayu.add(ranres.get(0));
-        neznayu.add(ranres.get(1));
-        neznayu.add(ranres.get(2));
-        neznayu.add(ranres.get(3));
-        neznayu.add(ranres.get(4));
-        neznayu.addAll(ranres);
-        neznayu.addAll(calculate());
-
-        resultCheck(neznayu.size());
-    }
-        getNum1.setText(""+ranres.get(0));
-        getNum2.setText(""+ranres.get(1));
-        getNum3.setText(""+ranres.get(2));
-        getNum4.setText(""+ranres.get(3));
-        getNum5.setText(""+ranres.get(4));
-
-}
-/** dfdsgfdsfdsfdsfdsfdsfsfsdfdsfdsfsdfds*/
 private ArrayList<Integer> randomArray(){
        ArrayList<Integer> my =new ArrayList<>();
        for (int i=1; i<=MAX; i++){
@@ -181,6 +146,33 @@ private void resultCheck(int a){
             checkLabel.setText("you guess 5 numbers");
             break;
     }
+}
+
+    /**
+     * @param a
+     * @param b
+     */
+private void fullResult(ArrayList<Integer> a, ArrayList<Integer> b){
+    Set<Integer> c=new HashSet<>();
+    if (a!=null) {
+
+        c.addAll(b);
+        c.addAll(a);
+
+        resultCheck(c.size());
+
+        getNum1.setText(""+b.get(0));
+        getNum2.setText(""+b.get(1));
+        getNum3.setText(""+b.get(2));
+        getNum4.setText(""+b.get(3));
+        getNum5.setText(""+b.get(4));
+    }
+}
+
+private void okAlertWindow(){
+    alertPane.setVisible(false);
+    basePane.setOpacity(1);
+    basePane.setDisable(false);
 }
 
 }

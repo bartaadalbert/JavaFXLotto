@@ -16,7 +16,7 @@
       <Pane id="basePane" fx:id="basePane" prefHeight="400.0" prefWidth="600.0" visible="true">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1ff6ff" height="400.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-            <HBox layoutX="166.0" layoutY="229.0" spacing="60.0">
+            <HBox layoutX="140.0" layoutY="229.0" spacing="60.0">
                <children>
                   <Label id="getNum1" fx:id="getNum1" text="" />
                   <Label id="getNum2" fx:id="getNum2" text="" />
